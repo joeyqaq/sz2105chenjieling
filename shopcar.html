@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>我的购物车</title>
+	<link rel="stylesheet" href="./css/car.css">
+	<link rel="stylesheet" href="./css/shopcar.css">
+  <link rel="stylesheet" type="text/css" href="css/ShopCar1.css"/>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<div class="header-logo">
+				<img src="./images/aa (13).jpg" alt="">
+			</div>
+			<div class="header-title" id="J_miniHeaderTitle">
+				<h2 style="font-size: 30px;">我的购物车</h2>
+			</div>
+			<div class="topbar-info" id="J_userInfo">
+				<a onclick="location.href='wyyx.html?userName='+location.search.split('=')[1]" style="cursor: pointer; margin-right: 10px;">首页</a>
+				<a class="link" href="./registers.html">登录</a><span class="sep">|</span><a class="link" href="./logon.html">注册</a></div>
+		</div>
+	</div>
+	<!-- <div id="car" class="car">
+		<div class="head_row hid">
+			<div class="check left"> <i onclick="checkAll()">√</i></div>
+			<div id="checkAll" class="img left">&nbsp;&nbsp;全选</div>
+			<div class="name left">商品名称</div>
+			<div class="price left">单价</div>
+			<div class="number left">数量</div>
+			<div class="subtotal left">小计</div>
+			<div class="ctrl left">操作</div>
+		</div>
+
+
+	</div>
+	<div id="sum_area">
+		<div id="pay">去结算</div>
+		<div id="pay_amout">合计：<span id="price_num">0</span>元</div>
+	</div> -->
+
+  <!--购物车增删改查-->
+		<!--<div class="content"><a href="#">返回首页</a></div>-->
+		<ul class="title content" style="margin-top: 70px;">
+			<li><input id="checkAll" type="checkbox"/>&emsp;全选</li>
+			<li style="width: 450px; text-align: left;">商品</li>
+			<li>数量</li>
+			<li>单价</li>
+			<li>操作</li>
+			<li>总价</li>
+		</ul>
+		<div class="carts content">
+			<!--<ul class="title content">
+				<li><input type="checkbox"/></li>
+				<li style="width: 450px;">
+					<p><img src="img/C语言.jpg"/></p>
+				</li>
+				<li><span>3</span></li>
+				<li><span>60</span></li>
+				<li><input type="button" value="-"/>&nbsp;|&nbsp;<input type="button" value="+"/></li>
+				<li><span>0</span></li>
+			</ul>-->
+		</div>
+		<div class=""></div>
+
+		<ul id="footer" class="title content">
+			<li style="margin-left: 5px;"><input id="deslection" type="checkbox"/>&emsp;取消选择</li>
+			<li>商品总数：<span id="totalCount">0</span></li>
+			<li>需付金额：<span id="totalPrice">0</span></li>
+			<li style="margin-left: 170px;"><input id="delCartGoods" type="button" value="删除所选商品" /></li>
+			<li style="float: right;"><input id="btn" type="button" value="立即结算"  onclick="alert('没钱别乱点啊')"/></li>
+		</ul>
+
+
+
+	<div id="box">
+		<h2 class="box_head"><span>买购物车中商品的人还买了</span></h2>
+		<ul id="ulList">
+		</ul>
+	</div>
+
+
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/ShopCarAAA.js"></script>
+<script>
+	window.onload = function() {
+		var aData = [
+      {
+        "bid":"001",
+				"imgUrl": "./img/oo1.jpg",
+				"proName": " 泰国乳胶凉席三件套 ",
+				"proPrice": "229",
+				"proComm": "1"
+			},
+			{
+        "bid":"002",
+				"imgUrl": "./img/oo2.jpg",
+				"proName": " 水洗夏被 ",
+				"proPrice": "99.9",
+				"proComm": "9.7"
+			},
+			{
+        "bid":"003",
+				"imgUrl": "./img/oo3.jpg",
+				"proName": " 三拼犬粮 ",
+				"proPrice": "65",
+				"proComm": "1.3"
+			},
+			{
+				"imgUrl": "./img/oo4.jpg",
+				"proName": " 无线充电便携榨汁杯 ",
+				"proPrice": "149",
+				"proComm": "1.1"
+			},
+			{
+				"imgUrl": "./img/oo5.jpg",
+				"proName": "岩板餐桌简约椅组合  ",
+				"proPrice": "750",
+				"proComm": "0.3"
+			},
+			{
+				"imgUrl": "./img/oo6 (1).jpg",
+				"proName": " 至尊AI按摩椅 ",
+				"proPrice": "19999",
+				"proComm": "3.3"
+			},
+			{
+				"imgUrl": "./img/oo6 (2).jpg",
+				"proName": " 护脊椰棕乳胶床垫",
+				"proPrice": "1999",
+				"proComm": "1.2"
+			},
+			{
+				"imgUrl": "./img/oo6 (3).jpg",
+				"proName": "  奢华头层牛皮席 ",
+				"proPrice": "450",
+				"proComm": "0.6"
+			},
+			{
+				"imgUrl": "./img/oo6 (4).jpg",
+				"proName": " AB面乳胶独立弹簧床垫 ",
+				"proPrice": "2207",
+				"proComm": "0.3"
+			},
+			{
+				"imgUrl": "./img/oo6 (5).jpg",
+				"proName": " 爽滑冰丝凉席套装 ",
+				"proPrice": "199",
+				"proComm": "7.2"
+			}
+		];
+		var oBox = document.getElementById("box");
+		var oCar = document.getElementById("car");
+		var oUl = document.getElementById("ulList");
+
+		for (var i = 0; i < aData.length; i++) {
+			var oLi = document.createElement("li");
+			var data = aData[i];
+
+			oLi.innerHTML += '<div class="pro_img"><img src="' + data["imgUrl"] + '" width="150" height="150"></div>';
+			oLi.innerHTML += '<h3 class="pro_name"><a href="#">' + data["proName"] + '</a></h3>';
+			oLi.innerHTML += '<p class="pro_price">' + data["proPrice"] + '元</p>';
+			oLi.innerHTML += '<p class="pro_rank">' + data["proComm"] + '万人好评</p>';
+			oLi.innerHTML += '<div class="add_btn">加入购物车</div>';
+			oUl.appendChild(oLi);
+
+		}
+		var aBtn = getClass(oBox, "add_btn");//获取box下的所有添加购物车按钮
+		var number = 0;//初始化商品数量
+    for (var i = 0; i < aBtn.length; i++) {
+      aBtn[i].index = i;
+      aBtn[i].onclick = function() {
+        var data = aData[this.index];
+        var bid = data.bid;
+        var obj = [
+					{
+						"bid": bid,//bid
+						"num": 1//数量
+					}
+				];
+			  var objStr = JSON.stringify(obj);
+        if(localStorage.getItem(location.search.split("=")[1]+"goods")){
+          var storGoods = localStorage.getItem(location.search.split("=")[1]+"goods");
+          var storGoodsJson = JSON.parse(storGoods);
+
+          var flag = false;//表示原商品信息中不存在当前点击的这个商品
+          for (var i = 0; i < storGoodsJson.length; i++) {
+            if(storGoodsJson[i].bid == bid){//表示在原商品信息中存在当前点击的这个商品
+              //对该商品添加一个数量
+              storGoodsJson[i].num++;
+              flag = true;
+              break;
+            }
+          }
+          if(!flag){//表示原商品信息中不存在当前点击的这个商品
+            //添加一条数据
+            var goodObj = {"bid":bid,"num":1}
+            storGoodsJson.push(goodObj);
+
+          }
+          var storGoodsStr = JSON.stringify(storGoodsJson);
+          //把添加好的这些商品信息保存到购物车中
+          localStorage.setItem(location.search.split("=")[1]+"goods",storGoodsStr);
+
+        }else{
+          localStorage.setItem(location.search.split("=")[1]+"goods",objStr);
+        }
+      }
+    }
+		// for (var i = 0; i < aBtn.length; i++) {
+		// 	number++;
+		// 	aBtn[i].index = i;
+		// 	aBtn[i].onclick = function() {
+		// 		var oDiv = document.createElement("div");
+		// 		var data = aData[this.index];
+		// 		oDiv.className = "row hid";
+		// 		oDiv.innerHTML += '<div class="check left"> <i class="i_check" id="i_check" onclick="i_check()" >√</i></div>';
+		// 		oDiv.innerHTML += '<div class="img left"><img src="' + data["imgUrl"] + '" width="80" height="80"></div>';
+		// 		oDiv.innerHTML += '<div class="name left"><span>' + data["proName"] + '</span></div>';
+		// 		oDiv.innerHTML += '<div class="price left"><span>' + data["proPrice"] + '元</span></div>';
+		// 		oDiv.innerHTML +=' <div class="item_count_i"><div class="num_count"><div class="count_d">-</div><div class="c_num">1</div><div class="count_i">+</div></div> </div>'
+		// 		oDiv.innerHTML += '<div class="subtotal left"><span>' + data["proPrice"] + '元</span></div>'
+		// 		oDiv.innerHTML += '<div class="ctrl left"><a href="javascript:;">×</a></div>';
+		// 		oCar.appendChild(oDiv);
+		// 		var flag = true;
+		// 		var check = oDiv.firstChild.getElementsByTagName("i")[0];
+		// 		check.onclick = function() {
+		// 			// console.log(check.className);
+		// 			if (check.className == "i_check i_acity") {
+		// 				check.classList.remove("i_acity");
+
+		// 			} else {
+		// 				check.classList.add("i_acity");
+		// 			}
+		// 			getAmount();
+		// 		}
+		// 		var delBtn = oDiv.lastChild.getElementsByTagName("a")[0];
+		// 		delBtn.onclick = function() {
+		// 			var result = confirm("确定删除吗?");
+		// 			if (result) {
+		// 				oCar.removeChild(oDiv);
+		// 				number--;
+		// 				getAmount();
+		// 			}
+		// 		}
+		// 		var i_btn = document.getElementsByClassName("count_i");
+		// 		for (var k = 0; k < i_btn.length; k++) {
+		// 			i_btn[k].onclick = function() {
+		// 				bt = this;
+		// 				//获取小计节点
+		// 				at = this.parentElement.parentElement.nextElementSibling;
+		// 				//获取单价节点
+		// 				pt = this.parentElement.parentElement.previousElementSibling;
+		// 				//获取数量值
+		// 				node = bt.parentNode.childNodes[1];
+		// 				console.log(node);
+		// 				num = node.innerText;
+		// 				num = parseInt(num);
+		// 				num++;
+		// 				node.innerText = num;
+		// 				//获取单价
+		// 				price = pt.innerText;
+		// 				price = price.substring(0, price.length - 1);
+		// 				//计算小计值
+		// 				at.innerText = price * num + "元";
+		// 				//计算总计值
+		// 				getAmount();
+		// 			}
+		// 		}
+		// 		//获取所有的数量减号按钮
+		// 		var d_btn = document.getElementsByClassName("count_d");
+		// 		for (k = 0; k < i_btn.length; k++) {
+		// 			d_btn[k].onclick = function() {
+		// 				bt = this;
+		// 				//获取小计节点
+		// 				at = this.parentElement.parentElement.nextElementSibling;
+		// 				//获取单价节点
+		// 				pt = this.parentElement.parentElement.previousElementSibling;
+		// 				//获取c_num节点
+		// 				node = bt.parentNode.childNodes[1];
+		// 				num = node.innerText;
+		// 				num = parseInt(num);
+		// 				if (num > 1) {
+		// 					num--;
+		// 				}
+		// 				node.innerText = num;
+		// 				//获取单价
+		// 				price = pt.innerText;
+		// 				price = price.substring(0, price.length - 1);
+		// 				//计算小计值
+		// 				at.innerText = price * num + "元";
+		// 				//计算总计值
+		// 				getAmount();
+		// 			}
+		// 		}
+
+		// 		delBtn.onclick = function() {
+		// 			var result = confirm("确定删除吗?");
+		// 			if (result) {
+		// 				oCar.removeChild(oDiv);
+		// 				number--;
+		// 				getAmount();
+		// 			}
+		// 		}
+
+		// 	}
+		// }
+
+	}
+
+	function getClass(oBox, tagname) {
+		var aTag = oBox.getElementsByTagName("*");
+		var aBox = [];
+		for (var i = 0; i < aTag.length; i++) {
+			if (aTag[i].className == tagname) {
+				aBox.push(aTag[i]);
+			}
+		}
+		return aBox;
+	}
+
+
+	var index = false;
+	function checkAll() {
+		var choose = document.getElementById("car").getElementsByTagName("i");
+		// console.log(choose);
+		if (choose.length != 1) {
+			for (i = 1; i < choose.length; i++) {
+				if (!index) {
+					choose[0].classList.add("i_acity2")
+					choose[i].classList.add("i_acity");
+				} else {
+					choose[i].classList.remove("i_acity");
+					choose[0].classList.remove("i_acity2")
+				}
+			}
+			index = !index;
+		}
+		getAmount();
+	}
+
+	//进行价格合计
+	function getAmount() {
+		// console.log(ys);
+		ns = document.getElementsByClassName("i_acity");
+		console.log(ns);
+		sum = 0;
+		//选中框
+		document.getElementById("price_num").innerText = sum;
+		for (y = 0; y < ns.length; y++) {
+			//小计
+			amount_info = ns[y].parentElement.parentElement.lastElementChild.previousElementSibling;
+			num = parseInt(amount_info.innerText);
+			sum += num;
+			document.getElementById("price_num").innerText = sum;
+		}
+	}
+</script>
+</html>

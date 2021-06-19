@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/registers.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/cookie.js"></script>
+    <script src="./js/validate/jquery.validate.min.js"></script>
+    <script src="./js/validate/localization/messages_zh.min.js"></script>
+    <script src="./js/layer/layer.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="box">
+            <div class="top_right">
+                <ul>
+                    <li>
+                        <a href="./registers.html">登录/注册<span>|</span></a>
+                    </li>
+                    <li>
+                        <a href="./shopcar.html">我的订单<span>|</span></a>
+                    </li>
+                    <li>
+                        <a href="">会员<span>|</span></a>
+                    </li>
+                    <li>
+                        <a href="">甄选家<span>|</span></a>
+                    </li>
+                    <li class="purchase">
+                        <a href="">企业采购
+                            <img src="./images/aa (12).jpg" alt="">
+                            <span>|</span>
+                        </a>
+                        <div class="purchase_hover">
+                          <a href="">
+                            <p>企业购</p>
+                            <p>礼品卡</p>
+                            <p>联系我们</p>
+                          </a>
+                        </div>
+                    </li>
+                    <li class="purchase">
+                        <a href=""> 客户服务
+                            <img src="./images/aa (12).jpg" alt=""><span>|</span>
+                        </a>
+                        <div class="purchase_hover">
+                          <a href="">
+                            <p>在线客服</p>
+                            <p>帮助中心</p>
+                            <p>商务服务</p>
+                            <p>开放平台</p>
+                          </a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="./images/aa (11).jpg" alt="" style="margin-right: 6px;">
+                        <a href="">APP</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sbox">
+                <div class="search">
+                    <div class="logo">
+                        <img src="./images/aa (13).jpg" alt="">
+                    </div>
+                    <div class="ss">
+                        <div class="ss_left">
+                            <input type="text" placeholder="T恤105元任选3件">
+                            <img src="./images/aa (15).jpg" alt="">
+                            <div class="six">618</div>
+                        </div>
+                        <div class="ss_right">
+                            <a href="">搜索</a>
+                        </div>
+                    </div>
+                    <div class="shopcar">
+                        <a href="./shopcar.html">
+                            <img src="./images/aa (14).jpg"
+                            alt="">
+                            <span>购物车</span>
+                        </a>
+                        <div class="zore">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <!-- <div class="logo"><img src="./images/aa (13).jpg"alt=""></div> -->
+        <div class="content">
+            <h2 class="text-center" style="margin-bottom: 40px
+            ;">网易严选 <small>用户登录</small></h2>
+            <form class="form-horizontal register loginForm">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                    <div class="col-sm-10">
+                    <input type="text" name="username" class="form-control" placeholder="用户名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                    <input type="password" class="form-control" name="password" placeholder="密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                        <input type="checkbox" name="remember"> 记住用户名
+                        </label>
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default submit">登录</button>
+                    </div>
+                </div>
+                <p style="position: relative; left: 75%;top: 20px;">
+                  <a href="./logon.html">还没有账号？  注册一个吧！</a>  
+                </p>
+            </form>
+        </div>
+    </div>
+    <div class="message">
+        <div class="message_top">
+            <div class="top_c">
+                <div class="top_left">
+                    <p style="font-size: 16px;
+                    font-weight: 400;
+                    margin-bottom: 28px;">客户服务</p>
+                    <div class="top_b">
+                        <div class="left_1">
+                            <a href="">
+                                <img src="./images/aa (16).jpg" alt="">
+                            <p style="margin-top: 10px;font-size: 14px;">在线客服</p>
+                            </a>
+                        </div>
+                        <div class="left_2">
+                            <a href="">
+                                <img src="./images/aa (1).jpg" alt="">
+                            <p style="margin-top: 10px;font-size: 14px;">用户反馈</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="top_center">
+                    <div class="tc">
+                        <h4>
+                            何为网易严选
+                        </h4>
+                        <p>
+                            网易严选是深受新中产喜爱的生活方式品牌, 为消费者提供一站式、全品类、全方位的美好生活解决方案。我们通过简约、实用、舒适的美学设计, 不断带来高品质灵感好物, 陪伴3000万新中产用户「活出自己喜欢的样子」, 共同倡导多元化的生活价值主张——每个人都可以把生活的选择权交还给自己。
+                        </p>
+                    </div>
+                    <div class="center_left">
+                        <p>关注我们:</p>
+                        <div class="cl">
+                            <a href="">
+                                <img src="./images/aa (2).jpg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./images/aa (3).jpg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./images/aa (4).jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="topright">
+                    <h4>扫码下载严选APP</h4>
+                    <div class="tr">
+                        <img src="./images/aa (10).jpg" alt="">
+                    </div>
+                    <div class="load">下载领大额新人红包</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="ft">
+            <ul>
+                <li>
+                    <div class="fd"> 
+                        <img src="./images/aa (5).jpg" alt="">
+                        <p>网易自营电商</p>
+                    </div>
+                </li>
+                <li style="margin: 0 122px">
+                    <div class="fd">
+                        <img src="./images/aa (6).jpg" alt="">
+                        <p>30天无忧退换货</p>
+                    </div>
+                </li>
+                <li style="margin-right: 122px;">
+                    <div class="fd">
+                        <img src="./images/aa (7).jpg" alt="">
+                        <p>满99元免邮费</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="fd">
+                        <img src="./images/aa (8).jpg" alt="">
+                        <p>品质保证</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footct">
+            <div class=foottip>
+                <a href="">关于我们</a><b>|</b>
+                <a href="">帮助中心</a><b>|</b>
+                <a href="">售后服务</a><b>|</b>
+                <a href="">配送与验收</a><b>|</b>
+                <a href="">商务合作</a><b>|</b>
+                <a href="">企业采购</a><b>|</b>
+                <a href="">开放平台</a><b>|</b>
+                <a href="">搜索推荐</a><b>|</b>
+                <a href="">友情链接</a><b>|</b>
+                <a href="">廉正举报</a>
+            </div>
+            <p class="ftp1">
+                <a href="">食品经营许可证：JY13301080111719</a>
+                <a href="">出版物经营许可证：新出发滨字第0132号</a>
+                <span>妙得ICP证号：ICP 证浙B2-20160106</span>
+                <a href="">浙杭食药监械经营备20171029号</a>
+                <a href="">营业执照</a>
+                <span>网易公司版权所有 © 1997-2021</span>
+            </p>
+            <p class="ftp2">
+                <span>无线电发射设备销售备案：42202011096855</span>
+                <span>（浙杭）网械企备字[2019]第00119号</span>
+                <span>（粤）网械平台备字（2019）第00004号</span>
+                <span>（粤）-非经营性-2016-0023</span>
+                <span>进口冷链食品管理承诺书</span>
+            </p>
+            <p class="ftp3">
+                <span>食品经营许可证：JY14207050007694</span>
+                <span>浙江省网络食品销售第三方平台提供者备案：浙网食A33010009</span>
+                <span>单用途商业预付卡备案证：330100AAC0024</span>
+            </p>
+            <p class="ftp4">
+                <span>
+                    出版物网络交易平台服务经营备案：新出发浙备字第2021006号
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+<script src="./js/login.js"></script>
+</html>
